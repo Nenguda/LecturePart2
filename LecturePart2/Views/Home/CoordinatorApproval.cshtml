@@ -1,0 +1,22 @@
+﻿
+
+
+@{
+    ViewData["Title"] = "CoordinatorApproval";
+}
+@model LecturePart2.Models.Claim
+
+<h2>Claim Approval</h2>
+
+<p><strong>Module Name:</strong> @Model.ModuleName</p>
+<p><strong>Module Code:</strong> @Model.ModuleCode</p>
+<p><strong>Submission Date:</strong> @Model.SubmissionDate.ToShortDateString()</p>
+<p><strong>Status:</strong> @Model.Status</p>
+
+<form asp-action="CoordinatorApproval" method="post">
+    <input type="hidden" asp-for="ClaimId" />
+    <div>
+        <button name="action" value="Approve" class="btn btn-success">Approve</button>
+        <button name="action" value="Deny" class="btn btn-danger">Deny</button>
+    </div>
+</form>

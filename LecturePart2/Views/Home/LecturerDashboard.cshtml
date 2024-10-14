@@ -1,0 +1,39 @@
+﻿
+
+@{
+    ViewData["Title"] = "Lecturer Dashboard";
+}
+
+@model LecturePart2.Models.Lecturer
+@{
+    ViewBag.Title = "Lecturer Dashboard";
+}
+
+<h2>Welcome, @Model.FullName</h2>
+
+<h3>Your Claims</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Module Name</th>
+            <th>Module Code</th>
+            <th>Status</th>
+            <th>Submission Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in ViewBag.Claims)
+        {
+            <tr>
+                <td>@claim.ClaimId</td>
+                <td>@claim.ModuleName</td>
+                <td>@claim.ModuleCode</td>
+                <td>@claim.Status</td>
+                <td>@claim.SubmissionDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("ApplyForClaim", new { id = Model.LecturerId })" class="btn btn-success">Apply for New Claim</a>

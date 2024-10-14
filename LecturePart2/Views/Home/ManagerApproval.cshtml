@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "ManagerApproval";
+}
+@model LecturePart2.Models.Claim
+
+<h2>Manager Approval</h2>
+
+<p><strong>Module Name:</strong> @Model.ModuleName</p>
+<p><strong>Module Code:</strong> @Model.ModuleCode</p>
+<p><strong>Submission Date:</strong> @Model.SubmissionDate.ToShortDateString()</p>
+<p><strong>Status:</strong> @Model.Status</p>
+
+<form asp-action="ManagerApproval" method="post">
+    <input type="hidden" asp-for="ClaimId" />
+    <div>
+        <button name="action" value="Pay" class="btn btn-primary">Pay</button>
+    </div>
+</form>
